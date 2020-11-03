@@ -22,7 +22,7 @@ public class TennisGameTest {
             "0,3,love-forty",
             "1,1,fifteen-all",
             "2,2,thirty-all",
-            "3,3,deuce",
+            "3,3,forty-all",
             "4,4,deuce",
             "4,3,firstPlayer advantage",
             "5,3,firstPlayer win",
