@@ -34,10 +34,7 @@ public class TennisGame {
 
     private String score() {
         if (firstPlayerGoals == secondPlayerGoals) {
-            if (firstPlayerGoals >= 4) {
-                return "deuce";
-            }
-            return map.get(firstPlayerGoals) + "-all";
+            return firstPlayerGoals >= 4 ? "deuce" : map.get(firstPlayerGoals) + "-all";
         }
         if (firstPlayerGoals >= 2 && secondPlayerGoals >= 2) {
             return leadingPlayer() + " " + progress();
