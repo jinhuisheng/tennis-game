@@ -33,29 +33,49 @@ public class TennisGame {
     }
 
     private String score() {
-        if (firstPlayerGoals == secondPlayerGoals) {
-            return firstPlayerGoals >= 4 ? "deuce" : map.get(firstPlayerGoals) + "-all";
-        }
-        if (firstPlayerGoals >= 2 && secondPlayerGoals >= 2) {
-            return leadingPlayer() + " " + progress();
-        }
+        return isSame()
+                ? isDeuce() ? deuce() : normalSame()
+                : isReadyWin() ? readyWin() : normalScore();
+    }
+
+    private String normalScore() {
         return map.get(firstPlayerGoals) + "-" + map.get(secondPlayerGoals);
     }
 
+    private String readyWin() {
+        return leadingPlayer() + " " + progress();
+    }
+
+    private boolean isReadyWin() {
+        return firstPlayerGoals >= 2 && secondPlayerGoals >= 2;
+    }
+
+    private String normalSame() {
+        return map.get(firstPlayerGoals) + "-all";
+    }
+
+    private String deuce() {
+        return "deuce";
+    }
+
+    private boolean isDeuce() {
+        return firstPlayerGoals >= 4;
+    }
+
+    private boolean isSame() {
+        return firstPlayerGoals == secondPlayerGoals;
+    }
+
     private String progress() {
-        if (differValue(1)) {
+        if (Math.abs(this.firstPlayerGoals - this.secondPlayerGoals) == 1) {
             return "advantage";
-        } else if (differValue(2)) {
+        } else {
             return "win";
         }
-        return "";
     }
 
     private String leadingPlayer() {
         return this.firstPlayerGoals - this.secondPlayerGoals > 0 ? "firstPlayer" : "secondPlayer";
     }
 
-    private boolean differValue(int value) {
-        return Math.abs(this.firstPlayerGoals - this.secondPlayerGoals) == value;
-    }
 }

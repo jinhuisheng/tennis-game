@@ -28,3 +28,7 @@
 * 
 * 3,4 secondPlayer advantage
 * 3,5 secondPlayer win
+
+## 视频
+https://www.youtube.com/watch?v=sC1Ruz-nWQg  91
+
